@@ -1,6 +1,6 @@
-name: dante # you probably want to 'snapcraft register <name>'
-version: '1.4.2' # just for humans, typically '1.2+git' or '1.3.2'
-summary: A free SOCKS server # 79 char long summary
+name: dante
+version: '1.4.2'
+summary: A free SOCKS server
 description: |
   Dante is a product developed by Inferno Nettverk A/S.
   It consists of a SOCKS server and a SOCKS client, implementing RFC 1928 and related standards.
@@ -18,8 +18,8 @@ parts:
     source-checksum: sha256/4c97cff23e5c9b00ca1ec8a95ab22972813921d7fbf60fc453e3e06382fc38a7
     configflags:
       - --prefix=/snap/dante/current/usr
-      - --sysconfdir=/etc
-      - --localstatedir=/var
+      - --sysconfdir=$SNAP_COMMON/etc
+      - --localstatedir=$SNAP_COMMON/var
       - --disable-client
       - --without-libwrap
       - --without-bsdauth
