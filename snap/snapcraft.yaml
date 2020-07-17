@@ -28,10 +28,9 @@ parts:
       - --without-upnp
       - --without-pam
 
-
 apps:
   dante:
-    command: danted
+    command: /usr/sbin/sockd
     daemon: simple
     restart-condition: always
     plugs: [network, network-bind]
