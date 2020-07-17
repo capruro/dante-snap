@@ -30,7 +30,7 @@ parts:
       - --without-upnp
       - --without-pam
     organize:
-      /snap/dante/current/etc: etc
+      snap/dante/current/etc: etc
 
 apps:
   dante:
