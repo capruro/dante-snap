@@ -3,8 +3,10 @@ version: '1.4.2'
 summary: A free SOCKS server
 description: |
   Dante is a product developed by Inferno Nettverk A/S.
-  It consists of a SOCKS server and a SOCKS client, implementing RFC 1928 and related standards.
-  It is a flexible product that can be used to provide convenient and secure network connectivity.
+  It consists of a SOCKS server and a SOCKS client,
+  implementing RFC 1928 and related standards.
+  It is a flexible product that can be used to provide
+  convenient and secure network connectivity.
 
 confinement: devmode # use 'strict' once you have the right plugs and slots
 #confinement: strict
@@ -18,8 +20,8 @@ parts:
     source-checksum: sha256/4c97cff23e5c9b00ca1ec8a95ab22972813921d7fbf60fc453e3e06382fc38a7
     configflags:
       - --prefix=/snap/dante/current/usr
-      - --sysconfdir=$SNAP_COMMON/etc
-      - --localstatedir=$SNAP_COMMON/var
+      - --sysconfdir=$SNAP_DATA/etc
+      - --localstatedir=$SNAP_DATA/var
       - --disable-client
       - --without-libwrap
       - --without-bsdauth
@@ -27,6 +29,11 @@ parts:
       - --without-krb5
       - --without-upnp
       - --without-pam
+    layout:
+      /var/log/socks.log:
+        bind: $SNAP_DATA/var/log/socks.log
+      /etc/danted.conf:
+        bind-file: $SNAP_DATA/etc/danted.conf
 
 apps:
   dante:
