@@ -1,15 +1,32 @@
-name: my-snap-name # you probably want to 'snapcraft register <name>'
+name: dante # you probably want to 'snapcraft register <name>'
 version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
-summary: Single-line elevator pitch for your amazing snap # 79 char long summary
+summary: A free SOCKS server # 79 char long summary
 description: |
-  This is my-snap's description. You have a paragraph or two to tell the
-  most important story about your snap. Keep it under 100 words though,
-  we live in tweetspace and your description wants to look good in the snap
-  store.
+  Dante is a product developed by Inferno Nettverk A/S.
+  It consists of a SOCKS server and a SOCKS client, implementing RFC 1928 and related standards.
+  It is a flexible product that can be used to provide convenient and secure network connectivity.
 
 confinement: devmode # use 'strict' once you have the right plugs and slots
+#confinement: strict
+#grade: stable
+base: core18
 
 parts:
-  my-part:
-    # See 'snapcraft plugins'
-    plugin: nil
+  dante:
+    plugin: autotools
+    source: https://www.inet.no/dante/files/dante-1.4.2.tar.gz
+    source-checksum: sha256/4c97cff23e5c9b00ca1ec8a95ab22972813921d7fbf60fc453e3e06382fc38a7
+    override-build: |
+      CONFIGFLAGS="--prefix=/snap/dante/current/usr --sysconfdir=/etc \
+      --localstatedir=/var --disable-client \
+      --without-libwrap --without-bsdauth \
+      --without-gssapi --without-krb5 --without-upnp --without-pam"
+      ./configure $CONFIGFLAGS
+      snapcraftctl build
+
+apps:
+  dante:
+    command: danted
+    daemon: simple
+    restart-condition: always
+    plugs: [network, network-bind]
