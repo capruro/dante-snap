@@ -29,6 +29,11 @@ parts:
       - --without-krb5
       - --without-upnp
       - --without-pam
+    layout:
+      /var/log/sockd.log:
+        bind: $SNAP_DATA/var/log/sockd.log
+      /etc/danted.conf:
+        bind-file: $SNAP_DATA/etc/danted.conf
 
 apps:
   dante:
