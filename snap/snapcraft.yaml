@@ -8,8 +8,7 @@ description: |
   It is a flexible product that can be used to provide
   convenient and secure network connectivity.
 
-confinement: devmode # use 'strict' once you have the right plugs and slots
-#confinement: strict
+confinement: strict
 grade: stable
 base: core18
 
