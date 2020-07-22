@@ -26,10 +26,16 @@ parts:
       - --without-krb5
       - --without-upnp
       - --without-pam
+
+layout:
+  /var/log/sockd.log:
+    bind-file: $SNAP_DATA/var/log/sockd.log
+  /etc/sockd.conf:
+    bind-file: $SNAP_DATA/etc/sockd.conf
       
 apps:
   dante:
-    command: /usr/local/sbin/sockd
+    command: sockd
     daemon: simple
     restart-condition: always
     plugs: [network, network-bind]
