@@ -26,10 +26,10 @@ parts:
       - --without-krb5
       - --without-upnp
       - --without-pam
-
+      
 apps:
   dante:
-    command: /usr/sbin/sockd
+    command: /usr/local/sbin/sockd
     daemon: simple
     restart-condition: always
     plugs: [network, network-bind]
