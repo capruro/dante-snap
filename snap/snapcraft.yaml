@@ -28,9 +28,9 @@ parts:
 
 layout:
   /var/log/sockd.log:
-    bind-file: $SNAP_DATA/var/log/sockd.log
+    bind-file: $SNAP_COMMON/var/log/sockd.log
   /etc/sockd.conf:
-    bind-file: $SNAP_DATA/etc/sockd.conf
+    bind-file: $SNAP_COMMON/etc/sockd.conf
       
 apps:
   dante:
