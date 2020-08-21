@@ -10,7 +10,7 @@ description: |
 
 confinement: strict
 grade: stable
-base: core20
+base: core18
 
 parts:
   dante:
