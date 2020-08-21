@@ -25,10 +25,6 @@ parts:
       - --without-krb5
       - --without-upnp
       - --without-pam
-    override-pull: |
-      snapcraftctl pull
-      wget -O $SNAPCRAFT_STAGE/dante-1.4.2/config.guess 'https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD'
-      wget -O $SNAPCRAFT_STAGE/dante-1.4.2/config.sub 'https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD'
 
 layout:
   /var/log/sockd.log:
