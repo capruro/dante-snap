@@ -25,6 +25,8 @@ parts:
       - --without-krb5
       - --without-upnp
       - --without-pam
+    build-package: [automake]
+
 
 layout:
   /var/log/sockd.log:
