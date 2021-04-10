@@ -39,7 +39,7 @@ layout:
       
 apps:
   dante:
-    command: sockd
+    command: usr/local/sbin/sockd
     daemon: simple
     restart-condition: always
     plugs: [network, network-bind]
