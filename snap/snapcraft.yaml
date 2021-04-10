@@ -25,7 +25,11 @@ parts:
       - --without-krb5
       - --without-upnp
       - --without-pam
-    build-packages: [automake]
+    build-packages: [wget]
+    override-pull: |
+      snapcraftctl pull
+      wget http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess
+      autoreconf -ifv 
 
 layout:
   /var/log/sockd.log:
