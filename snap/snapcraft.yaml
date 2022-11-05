@@ -33,10 +33,10 @@ parts:
 
   config:
     plugin: dump
-    source: ./src
+    source: src/
     source-type: local
     organize:
-      sockd.conf: $SNAP_COMMON/etc/sockd.conf
+      sockd.conf: etc/sockd.conf
 
 layout:
   /var/log/sockd.log:
