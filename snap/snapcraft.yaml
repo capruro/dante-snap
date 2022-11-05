@@ -38,11 +38,12 @@ parts:
       autoreconf -ifv
 
   src:
+    after: [dante]
     plugin: dump
     source: src/
     source-type: local
     organize:
-      sockd.conf: etc/sockd.conf
+      src/sockd.conf: etc/sockd.conf
 
 layout:
   /var/log/sockd.log:
@@ -56,3 +57,7 @@ apps:
     daemon: simple
     restart-condition: always
     plugs: [network, network-bind]
+
+  sockd:
+    command: usr/local/sbin/sockd
+    plugs: [network]
