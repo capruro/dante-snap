@@ -31,6 +31,13 @@ parts:
       wget http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess
       autoreconf -ifv
 
+  config:
+    plugin: dump
+    source: ./src
+    source-type: local
+    organize:
+      sockd.conf: $SNAP_COMMON/etc/sockd.conf
+
 layout:
   /var/log/sockd.log:
     bind-file: $SNAP_COMMON/var/log/sockd.log
