@@ -12,6 +12,12 @@ confinement: strict
 grade: stable
 base: core20
 
+architectures:
+  - amd64
+  - arm64
+  - armhf
+  - s390x
+
 parts:
   dante:
     plugin: autotools
