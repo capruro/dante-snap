@@ -43,7 +43,7 @@ parts:
     source: src/
     source-type: local
     organize:
-      src/sockd.conf: etc/sockd.conf
+      sockd.conf: etc/sockd.conf
 
 layout:
   /var/log/sockd.log:
