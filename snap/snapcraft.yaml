@@ -22,6 +22,12 @@ architectures:
   - build-on: s390x
     build-for: s390x
 
+plugs:
+  etc-sockd:
+    interface: system-files
+    read:
+    - /etc/sockd.conf
+
 parts:
   dante:
     plugin: autotools
@@ -52,15 +58,19 @@ parts:
 layout:
   /var/log/sockd.log:
     bind-file: $SNAP_COMMON/var/log/sockd.log
-  /etc/sockd.conf:
-    bind-file: $SNAP_COMMON/etc/sockd.conf
 
 apps:
   dante:
     command: usr/local/sbin/sockd
     daemon: simple
-    plugs: [network, network-bind]
+    plugs:
+      - network
+      - network-bind
+      - etc-sockd
 
   sockd:
     command: usr/local/sbin/sockd
-    plugs: [network]
+    plugs:
+      - network
+      - network-bind
+      - etc-sockd
