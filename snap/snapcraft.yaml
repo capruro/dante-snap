@@ -10,7 +10,7 @@ description: |
 
 confinement: strict
 grade: stable
-base: core20
+base: core22
 
 architectures:
   - build-on: amd64
